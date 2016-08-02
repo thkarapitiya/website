@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:cc="http://java.sun.com/jsf/composite">
+
+    <!-- INTERFACE -->
+    <cc:interface>
+        <cc:attribute name="page" required="false"/>
+    </cc:interface>
+
+    <!-- IMPLEMENTATION -->
+    <cc:implementation>
+        <ul>
+            <li class="#{cc.attrs.page eq 'home' ? 'current_page_item':''}"><a href="index.xhtml">Homepage</a></li>
+            <li class="#{cc.attrs.page eq 'aboutus' ? 'current_page_item':''}"><a href="aboutus.xhtml">About Us</a></li>
+            <li><a href="twocolumn1.html">Services</a></li>
+            <li><a href="twocolumn2.html">News</a></li>
+            <li><a href="onecolumn.html">Contact</a></li>
+        </ul>
+    </cc:implementation>
+</html>
