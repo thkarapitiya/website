@@ -32,10 +32,21 @@ public class Location implements Serializable {
     boolean active;
     @Enumerated(EnumType.STRING)
     LocationType type;
-    
     @ManyToOne
     Location parent;
 
+    String phone;
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+    
+    
+    
     public String getSname() {
         return sname;
     }

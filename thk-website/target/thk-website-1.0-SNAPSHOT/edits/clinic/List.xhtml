@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListClinicTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListClinicEmpty}" rendered="#{clinicController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{clinicController.items.rowCount > 0}">
+                    <h:outputText value="#{clinicController.pagination.pageFirstItem + 1}..#{clinicController.pagination.pageLastItem + 1}/#{clinicController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{clinicController.previous}" value="#{bundle.Previous} #{clinicController.pagination.pageSize}" rendered="#{clinicController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{clinicController.next}" value="#{bundle.Next} #{clinicController.pagination.pageSize}" rendered="#{clinicController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{clinicController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListClinicTitle_id}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.id}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListClinicTitle_sname}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.sname}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListClinicTitle_tname}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tname}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListClinicTitle_ename}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ename}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListClinicTitle_category}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.category}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListClinicTitle_parent}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.parent}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListClinicTitle_unit}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.unit}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListClinicTitle_location}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.location}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListClinicTitle_speciality}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.speciality}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListClinicTitle_person}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.person}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListClinicTitle_fromTime}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fromTime}">
+                                <f:convertDateTime pattern="HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListClinicTitle_toTime}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.toTime}">
+                                <f:convertDateTime pattern="HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListClinicTitle_comments}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.comments}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListClinicTitle_weekday}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.weekday}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{clinicController.prepareView}" value="#{bundle.ListClinicViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{clinicController.prepareEdit}" value="#{bundle.ListClinicEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{clinicController.destroy}" value="#{bundle.ListClinicDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{clinicController.prepareCreate}" value="#{bundle.ListClinicCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListClinicIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

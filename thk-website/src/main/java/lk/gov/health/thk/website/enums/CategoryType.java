@@ -10,5 +10,6 @@ package lk.gov.health.thk.website.enums;
  * @author User
  */
 public enum CategoryType {
+    Title,
     Other,
 }

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewClinicTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewClinicLabel_id}"/>
+                    <h:outputText value="#{clinicController.selected.id}" title="#{bundle.ViewClinicTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewClinicLabel_sname}"/>
+                    <h:outputText value="#{clinicController.selected.sname}" title="#{bundle.ViewClinicTitle_sname}"/>
+                    <h:outputText value="#{bundle.ViewClinicLabel_tname}"/>
+                    <h:outputText value="#{clinicController.selected.tname}" title="#{bundle.ViewClinicTitle_tname}"/>
+                    <h:outputText value="#{bundle.ViewClinicLabel_ename}"/>
+                    <h:outputText value="#{clinicController.selected.ename}" title="#{bundle.ViewClinicTitle_ename}"/>
+                    <h:outputText value="#{bundle.ViewClinicLabel_category}"/>
+                    <h:outputText value="#{clinicController.selected.category}" title="#{bundle.ViewClinicTitle_category}"/>
+                    <h:outputText value="#{bundle.ViewClinicLabel_parent}"/>
+                    <h:outputText value="#{clinicController.selected.parent}" title="#{bundle.ViewClinicTitle_parent}"/>
+                    <h:outputText value="#{bundle.ViewClinicLabel_unit}"/>
+                    <h:outputText value="#{clinicController.selected.unit}" title="#{bundle.ViewClinicTitle_unit}"/>
+                    <h:outputText value="#{bundle.ViewClinicLabel_location}"/>
+                    <h:outputText value="#{clinicController.selected.location}" title="#{bundle.ViewClinicTitle_location}"/>
+                    <h:outputText value="#{bundle.ViewClinicLabel_speciality}"/>
+                    <h:outputText value="#{clinicController.selected.speciality}" title="#{bundle.ViewClinicTitle_speciality}"/>
+                    <h:outputText value="#{bundle.ViewClinicLabel_person}"/>
+                    <h:outputText value="#{clinicController.selected.person}" title="#{bundle.ViewClinicTitle_person}"/>
+                    <h:outputText value="#{bundle.ViewClinicLabel_fromTime}"/>
+                    <h:outputText value="#{clinicController.selected.fromTime}" title="#{bundle.ViewClinicTitle_fromTime}">
+                        <f:convertDateTime pattern="HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewClinicLabel_toTime}"/>
+                    <h:outputText value="#{clinicController.selected.toTime}" title="#{bundle.ViewClinicTitle_toTime}">
+                        <f:convertDateTime pattern="HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewClinicLabel_comments}"/>
+                    <h:outputText value="#{clinicController.selected.comments}" title="#{bundle.ViewClinicTitle_comments}"/>
+                    <h:outputText value="#{bundle.ViewClinicLabel_weekday}"/>
+                    <h:outputText value="#{clinicController.selected.weekday}" title="#{bundle.ViewClinicTitle_weekday}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{clinicController.destroyAndView}" value="#{bundle.ViewClinicDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewClinicEditLink}"/>
+                <br />
+                <h:commandLink action="#{clinicController.prepareCreate}" value="#{bundle.ViewClinicCreateLink}" />
+                <br />
+                <h:commandLink action="#{clinicController.prepareList}" value="#{bundle.ViewClinicShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewClinicIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
