@@ -1,12 +1,13 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Facelet Title</title>
     </h:head>
     <h:body>
-         <h:link outcome="/edits/category/List" value="Show All Category Items"/>
+        <h:link outcome="/edits/category/List" value="Show All Category Items"/>
         <br />
         <h:link outcome="/edits/clinic/List" value="Show All Clinic Items"/>
         <br />
@@ -19,6 +20,20 @@
         <h:link outcome="/edits/unit/List" value="Show All Unit Items"/>
         <br />
         <h:link outcome="/edits/ward/List" value="Show All Ward Items"/>
+
+
+        <div>
+            <p:galleria showCaption="false" 
+                        showFilmstrip="false" 
+                        value="#{imageController.images}" var="image" 
+                        frameHeight="285" frameWidth="100%" style="margin: 0px; border: 0px!important; margin: 0px!important; border-radius: 0px;" >
+                <p:graphicImage 
+                    style="margin: 0px; border: 0px!important; margin: 0px!important;" library="images" name="#{image}" alt="" title="" />
+            </p:galleria>
+            <div class="caption"> 
+                <span><strong>THK</strong>: A responsive HTML5 site template by HTML5 Up!</span> <a href="#" class="button">Find Out More!</a> 
+            </div>
+        </div>
     </h:body>
 </html>
 

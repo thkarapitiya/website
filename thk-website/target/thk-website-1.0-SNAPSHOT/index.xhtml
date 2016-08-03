@@ -1,7 +1,8 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns:ez="http://java.sun.com/jsf/composite/ezcomp" 
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Teaching Hospital, Karapitiya</title>
         <h:outputStylesheet name="css/jsfcrud.css"/>
@@ -47,120 +48,126 @@
                     <!-- Banner -->
                     <div class="row">
                         <div class="12u">
-                            <div id="banner"> <a href="#"><img src="images/banner.jpg" alt=""/></a>
-                                <div class="caption"> <span><strong>THK</strong>: A responsive HTML5 site template by HTML5 Up!</span> <a href="#" class="button">Find Out More!</a> </div>
+                            <div id="banner"> 
+                                <p:galleria showCaption="false" showFilmstrip="false" value="#{imageController.images}" var="image"  panelWidth="1200" panelHeight="265" style="border:0px;margin:none;padding:0px;border-radius:0px;" >
+                                    <p:graphicImage library="images" name="#{image}" alt="Image Description for #{image}" title="#{image}"/>
+                                </p:galleria>
+                                <div class="caption"> 
+                                    <span><strong>THK</strong>: A responsive HTML5 site template by HTML5 Up!</span> <a href="#" class="button">Find Out More!</a> 
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <!-- Features -->
-                    <div class="row">
-                        <div class="3u">
-                            <section class="first">
-                                <h2>Welcome to Arcana</h2>
-                                <p>This is <strong>Arcana</strong>, a fully responsive HTML5 site template designed by nodethirtythree and released for free by HTML5 Up! It features a simple yet elegant design, solid HTML5 and CSS3 code, and full responsive support for desktop, tablet, and mobile displays.</p>
-                            </section>
-                        </div>
-                        <div class="3u">
-                            <section>
-                                <h2>Responsive? Really?</h2>
-                                <p>Yup. This site template is fully responsive, meaning it'll look great on desktop (widescreen and standard), tablet and mobile device displays. Try it for yourself: simply narrow down your browser window and hit "reload" to see how stuff changes.</p>
-                            </section>
-                        </div>
-                        <div class="3u">
-                            <section>
-                                <h2>The CCA 3.0 License</h2>
-                                <p><strong>Arcana</strong> is released for free under the Creative Commons Attribution 3.0 license, which means you can use it for pretty much any personal or commercial use. The catch? Just give us credit wherever you use it (oh, and tell your friends about us, though that's not in the license :)</p>
-                            </section>
-                        </div>
-                        <div class="3u">
-                            <section class="last">
-                                <h2>About HTML5 Up!</h2>
-                                <p>HTML5 Up! is a side project by AJ (aka nodethirtythree) to test and improve 5grid, a responsive HTML5/CSS3 framework. You can find more cool designs at our site or follow us on Twitter for new release announcements and other cool stuff. </p>
-                            </section>
-                        </div>
+                </div>
+                <!-- Features -->
+                <div class="row">
+                    <div class="3u">
+                        <section class="first">
+                            <h2>Welcome to Arcana</h2>
+                            <p>This is <strong>Arcana</strong>, a fully responsive HTML5 site template designed by nodethirtythree and released for free by HTML5 Up! It features a simple yet elegant design, solid HTML5 and CSS3 code, and full responsive support for desktop, tablet, and mobile displays.</p>
+                        </section>
                     </div>
-                    <!-- Divider -->
-                    <div class="row">
-                        <div class="12u">
-                            <div class="divider divider-top"></div>
-                        </div>
+                    <div class="3u">
+                        <section>
+                            <h2>Responsive? Really?</h2>
+                            <p>Yup. This site template is fully responsive, meaning it'll look great on desktop (widescreen and standard), tablet and mobile device displays. Try it for yourself: simply narrow down your browser window and hit "reload" to see how stuff changes.</p>
+                        </section>
                     </div>
-                    <!-- Highlight Box -->
-                    <div class="row">
-                        <div class="12u">
-                            <div class="highlight-box">
-                                <h2>Amet lorem varius tempus consequat lorem?</h2>
-                                <span>(tempus aliquam lorem blandit etiam suspendisse dapibus)</span> </div>
-                        </div>
+                    <div class="3u">
+                        <section>
+                            <h2>The CCA 3.0 License</h2>
+                            <p><strong>Arcana</strong> is released for free under the Creative Commons Attribution 3.0 license, which means you can use it for pretty much any personal or commercial use. The catch? Just give us credit wherever you use it (oh, and tell your friends about us, though that's not in the license :)</p>
+                        </section>
                     </div>
-                    <!-- Divider -->
-                    <div class="row">
-                        <div class="12u">
-                            <div class="divider divider-bottom"></div>
-                        </div>
+                    <div class="3u">
+                        <section class="last">
+                            <h2>About HTML5 Up!</h2>
+                            <p>HTML5 Up! is a side project by AJ (aka nodethirtythree) to test and improve 5grid, a responsive HTML5/CSS3 framework. You can find more cool designs at our site or follow us on Twitter for new release announcements and other cool stuff. </p>
+                        </section>
                     </div>
-                    <!-- Thumbnails -->
-                    <div class="row">
-                        <div class="12u">
-                            <section class="thumbnails first last">
-                                <div class="5grid">
-                                    <div class="row">
-                                        <div class="4u">
-                                            <div class="thumbnail first"> <a href="#"><img src="images/pic1.jpg" alt=""/></a>
-                                                <blockquote>Duis neque nisi, dapibus sed mattis et quis, rutrum accumsan sed. Suspendisse eu varius nibh. Suspendapibus sed mattis quis.</blockquote>
-                                                <cite><strong>Jane Doe</strong> Lorem Ipsum Dolore</cite> </div>
-                                        </div>
-                                        <div class="4u">
-                                            <div class="thumbnail"> <a href="#"><img src="images/pic2.jpg" alt=""/></a>
-                                                <blockquote>Duis neque nisi, dapibus sed mattis et quis, rutrum accumsan sed. Suspendisse eu varius nibh. Suspenddapibus sed mattis quis.</blockquote>
-                                                <cite><strong>John Doe</strong> Lorem Ipsum Dolore</cite> </div>
-                                        </div>
-                                        <div class="4u">
-                                            <div class="thumbnail"> <a href="#"><img src="images/pic3.jpg" alt=""/></a>
-                                                <blockquote>Duis neque nisi, dapibus sed mattis et quis, rutrum accumsan sed. Suspendisse eu varius nibh. Suspenddapibus sed mattis quis.</blockquote>
-                                                <cite><strong>Jane Doe</strong> Lorem Ipsum Dolore</cite> </div>
-                                        </div>
+                </div>
+                <!-- Divider -->
+                <div class="row">
+                    <div class="12u">
+                        <div class="divider divider-top"></div>
+                    </div>
+                </div>
+                <!-- Highlight Box -->
+                <div class="row">
+                    <div class="12u">
+                        <div class="highlight-box">
+                            <h2>Amet lorem varius tempus consequat lorem?</h2>
+                            <span>(tempus aliquam lorem blandit etiam suspendisse dapibus)</span> </div>
+                    </div>
+                </div>
+                <!-- Divider -->
+                <div class="row">
+                    <div class="12u">
+                        <div class="divider divider-bottom"></div>
+                    </div>
+                </div>
+                <!-- Thumbnails -->
+                <div class="row">
+                    <div class="12u">
+                        <section class="thumbnails first last">
+                            <div class="5grid">
+                                <div class="row">
+                                    <div class="4u">
+                                        <div class="thumbnail first"> <a href="#"><img src="images/pic1.jpg" alt=""/></a>
+                                            <blockquote>Duis neque nisi, dapibus sed mattis et quis, rutrum accumsan sed. Suspendisse eu varius nibh. Suspendapibus sed mattis quis.</blockquote>
+                                            <cite><strong>Jane Doe</strong> Lorem Ipsum Dolore</cite> </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="12u">
-                                            <div class="divider"></div>
-                                        </div>
+                                    <div class="4u">
+                                        <div class="thumbnail"> <a href="#"><img src="images/pic2.jpg" alt=""/></a>
+                                            <blockquote>Duis neque nisi, dapibus sed mattis et quis, rutrum accumsan sed. Suspendisse eu varius nibh. Suspenddapibus sed mattis quis.</blockquote>
+                                            <cite><strong>John Doe</strong> Lorem Ipsum Dolore</cite> </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="4u">
-                                            <div class="thumbnail"> <a href="#"><img src="images/pic4.jpg" alt=""/></a>
-                                                <blockquote>Duis neque nisi, dapibus sed mattis et quis, rutrum accumsan sed. Suspendisse eu varius nibh. Suspenddapibus sed mattis quis.</blockquote>
-                                                <cite><strong>John Doe</strong> Lorem Ipsum Dolore</cite> </div>
-                                        </div>
-                                        <div class="4u">
-                                            <div class="thumbnail"> <a href="#"><img src="images/pic5.jpg" alt=""/></a>
-                                                <blockquote>Duis neque nisi, dapibus sed mattis et quis, rutrum accumsan sed. Suspendisse eu varius nibh. Suspenddapibus sed mattis quis.</blockquote>
-                                                <cite><strong>Jane Doe</strong> Lorem Ipsum Dolore</cite> </div>
-                                        </div>
-                                        <div class="4u">
-                                            <div class="thumbnail last"> <a href="#"><img src="images/pic6.jpg" alt=""/></a>
-                                                <blockquote>Duis neque nisi, dapibus sed mattis et quis, rutrum accumsan sed. Suspendisse eu varius nibh. Suspenddapibus sed mattis quis.</blockquote>
-                                                <cite><strong>John Doe</strong> Lorem Ipsum Dolore</cite> </div>
-                                        </div>
+                                    <div class="4u">
+                                        <div class="thumbnail"> <a href="#"><img src="images/pic3.jpg" alt=""/></a>
+                                            <blockquote>Duis neque nisi, dapibus sed mattis et quis, rutrum accumsan sed. Suspendisse eu varius nibh. Suspenddapibus sed mattis quis.</blockquote>
+                                            <cite><strong>Jane Doe</strong> Lorem Ipsum Dolore</cite> </div>
                                     </div>
                                 </div>
-                            </section>
-                        </div>
+                                <div class="row">
+                                    <div class="12u">
+                                        <div class="divider"></div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="4u">
+                                        <div class="thumbnail"> <a href="#"><img src="images/pic4.jpg" alt=""/></a>
+                                            <blockquote>Duis neque nisi, dapibus sed mattis et quis, rutrum accumsan sed. Suspendisse eu varius nibh. Suspenddapibus sed mattis quis.</blockquote>
+                                            <cite><strong>John Doe</strong> Lorem Ipsum Dolore</cite> </div>
+                                    </div>
+                                    <div class="4u">
+                                        <div class="thumbnail"> <a href="#"><img src="images/pic5.jpg" alt=""/></a>
+                                            <blockquote>Duis neque nisi, dapibus sed mattis et quis, rutrum accumsan sed. Suspendisse eu varius nibh. Suspenddapibus sed mattis quis.</blockquote>
+                                            <cite><strong>Jane Doe</strong> Lorem Ipsum Dolore</cite> </div>
+                                    </div>
+                                    <div class="4u">
+                                        <div class="thumbnail last"> <a href="#"><img src="images/pic6.jpg" alt=""/></a>
+                                            <blockquote>Duis neque nisi, dapibus sed mattis et quis, rutrum accumsan sed. Suspendisse eu varius nibh. Suspenddapibus sed mattis quis.</blockquote>
+                                            <cite><strong>John Doe</strong> Lorem Ipsum Dolore</cite> </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
                     </div>
-                    <!-- Divider -->
-                    <div class="row">
-                        <div class="12u">
-                            <div class="divider divider-top"></div>
-                        </div>
+                </div>
+                <!-- Divider -->
+                <div class="row">
+                    <div class="12u">
+                        <div class="divider divider-top"></div>
                     </div>
-                    <!-- CTA Box -->
-                    <div class="row">
-                        <div class="12u">
-                            <div class="cta-box"> <span>Amet lorem varius tempus consequat lorem?</span> <a href="#" class="button">Ipsum Consequat</a> </div>
-                        </div>
+                </div>
+                <!-- CTA Box -->
+                <div class="row">
+                    <div class="12u">
+                        <div class="cta-box"> <span>Amet lorem varius tempus consequat lorem?</span> <a href="#" class="button">Ipsum Consequat</a> </div>
                     </div>
                 </div>
             </div>
+           
             <!-- Footer -->
             <div id="footer-wrapper">
                 <footer class="5grid-layout" id="site-footer">
