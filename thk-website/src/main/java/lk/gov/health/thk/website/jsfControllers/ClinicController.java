@@ -6,6 +6,10 @@ import lk.gov.health.thk.website.jsfControllers.util.PaginationHelper;
 import lk.gov.health.thk.website.sessionBeans.ClinicFacade;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
@@ -28,7 +32,9 @@ public class ClinicController implements Serializable {
     private lk.gov.health.thk.website.sessionBeans.ClinicFacade ejbFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
-
+   private List<Clinic> clinics;
+   private String searchKey;
+   private List<Clinic>searchList;
     public ClinicController() {
     }
 
@@ -82,8 +88,10 @@ public class ClinicController implements Serializable {
     public String create() {
         try {
             getFacade().create(current);
+            clinics =null;
             JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("ClinicCreated"));
             return prepareCreate();
+            
         } catch (Exception e) {
             JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
             return null;
@@ -187,6 +195,50 @@ public class ClinicController implements Serializable {
     public SelectItem[] getItemsAvailableSelectOne() {
         return JsfUtil.getSelectItems(ejbFacade.findAll(), true);
     }
+
+    public List<Clinic> getClinics() {
+        if(clinics==null){
+        clinics=ejbFacade.findAll();
+        }
+        return clinics;
+    }
+
+    public void setClinics(List<Clinic> clinics) {
+        this.clinics = clinics;
+    }
+
+    public String getSearchKey() {
+        return searchKey;
+    }
+
+    public void setSearchKey(String searchKey) {
+        this.searchKey = searchKey;
+    }
+
+    public List<Clinic> getSearchList() {
+        return searchList;
+    }
+
+    public void setSearchList(List<Clinic> searchList) {
+        this.searchList = searchList;
+    }
+    public String search(){
+        
+    if(searchKey==null || searchKey.trim().equals("")){
+    searchList=new ArrayList<Clinic>();
+    return"";
+    }
+    
+    String jpql="SELECT c FROM Clinic c WHERE c.sname LIKE :sk  ORDER BY c.sname";
+    Map m = new HashMap();
+    
+    m.put("sk", "%"+searchKey+"%");
+        System.out.println("m = " + m);
+    searchList=ejbFacade.findBySQL(jpql, m);
+    return "clinic_search";
+    
+    
+    } 
 
     @FacesConverter(forClass = Clinic.class)
     public static class ClinicControllerConverter implements Converter {

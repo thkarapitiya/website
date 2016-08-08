@@ -27,9 +27,7 @@
                     <h:selectOneMenu id="parent" value="#{categoryController.selected.parent}" title="#{bundle.CreateCategoryTitle_parent}" >
                         <f:selectItems value="#{categoryController.itemsAvailableSelectOne}"/>
                     </h:selectOneMenu>
-                    <h:outputLabel value="#{bundle.CreateCategoryLabel_id}" for="id" />
-                    <h:inputText id="id" value="#{categoryController.selected.id}" title="#{bundle.CreateCategoryTitle_id}" />
-                </h:panelGrid>
+                    </h:panelGrid>
                 <br />
                 <h:commandLink action="#{categoryController.create}" value="#{bundle.CreateCategorySaveLink}" />
                 <br />

@@ -6,6 +6,7 @@ import lk.gov.health.thk.website.jsfControllers.util.PaginationHelper;
 import lk.gov.health.thk.website.sessionBeans.LocationFacade;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
@@ -28,7 +29,7 @@ public class LocationController implements Serializable {
     private lk.gov.health.thk.website.sessionBeans.LocationFacade ejbFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
-
+    private List<Location> locations;
     public LocationController() {
     }
 
@@ -186,6 +187,18 @@ public class LocationController implements Serializable {
 
     public SelectItem[] getItemsAvailableSelectOne() {
         return JsfUtil.getSelectItems(ejbFacade.findAll(), true);
+    }
+
+    public List<Location> getLocations() {
+        if(locations==null){
+        locations=ejbFacade.findAll();
+        }
+        
+        return locations;
+    }
+
+    public void setLocations(List<Location> locations) {
+        this.locations = locations;
     }
 
     @FacesConverter(forClass = Location.class)

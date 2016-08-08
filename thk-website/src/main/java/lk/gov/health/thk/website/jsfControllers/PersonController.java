@@ -6,6 +6,7 @@ import lk.gov.health.thk.website.jsfControllers.util.PaginationHelper;
 import lk.gov.health.thk.website.sessionBeans.PersonFacade;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
@@ -28,6 +29,7 @@ public class PersonController implements Serializable {
     private lk.gov.health.thk.website.sessionBeans.PersonFacade ejbFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
+    private List<Person> persons;
 
     public PersonController() {
     }
@@ -186,6 +188,17 @@ public class PersonController implements Serializable {
 
     public SelectItem[] getItemsAvailableSelectOne() {
         return JsfUtil.getSelectItems(ejbFacade.findAll(), true);
+    }
+
+    public List<Person> getPersons() {
+        if(persons ==null){
+        persons=ejbFacade.findAll();
+        }
+        return persons;
+    }
+
+    public void setPersons(List<Person> persons) {
+        this.persons = persons;
     }
 
     @FacesConverter(forClass = Person.class)

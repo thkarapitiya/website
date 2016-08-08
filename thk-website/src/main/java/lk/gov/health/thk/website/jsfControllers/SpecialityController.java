@@ -6,6 +6,7 @@ import lk.gov.health.thk.website.jsfControllers.util.PaginationHelper;
 import lk.gov.health.thk.website.sessionBeans.SpecialityFacade;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
@@ -28,6 +29,7 @@ public class SpecialityController implements Serializable {
     private lk.gov.health.thk.website.sessionBeans.SpecialityFacade ejbFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
+    private List<Speciality> specialitys;
 
     public SpecialityController() {
     }
@@ -186,6 +188,18 @@ public class SpecialityController implements Serializable {
 
     public SelectItem[] getItemsAvailableSelectOne() {
         return JsfUtil.getSelectItems(ejbFacade.findAll(), true);
+    }
+
+    public List<Speciality> getSpecialitys() {
+        if(specialitys==null){
+        specialitys=ejbFacade.findAll();
+        }
+        
+        return specialitys;
+    }
+
+    public void setSpecialitys(List<Speciality> specialitys) {
+        this.specialitys = specialitys;
     }
 
     @FacesConverter(forClass = Speciality.class)
